@@ -33,11 +33,13 @@
 
   <div class="post-text">{{- .Content -}}</div>
 
-
-  
-  {{with .Params.Tags}}   <h6 class="tags-footer"> Tags: {{range .}}
-    <a href="/tags/{{ . | urlize}}">#{{- . -}}</a>
-      {{- end -}}</h6> {{- end -}}
+  {{ if gt .Params.tags 0 }}
+  <h6 class="tags-footer"> Tags: {{ range .Params.tags }}
+  <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+  &nbsp;
+  {{ end }}
+  </h6>
+  {{ end }}
 
     </article>
 {{ end }}
