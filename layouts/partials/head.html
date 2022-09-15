@@ -7,7 +7,9 @@
     {{ end }}
     {{ template "_internal/google_analytics.html" . }}
 
-    {{ printf `<link rel="shortcut icon" href="%s">` ("favicon.ico" | absURL) | safeHTML }}
+    {{ if .Site.Params.favicon }}
+    <link rel="icon" type="image/x-icon" href='{{ .Site.Params.favicon  }}'>
+    {{ end }}
     
     {{ $sass := resources.Get "sass/main.scss" }}
     {{ $css := $sass | resources.ToCSS | minify }}
