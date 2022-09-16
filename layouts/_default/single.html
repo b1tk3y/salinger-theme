@@ -35,7 +35,7 @@
 
   {{ if gt .Params.tags 0 }}
   <h6 class="tags-footer"> Tags: {{ range .Params.tags }}
-  <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+  <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
   &nbsp;
   {{ end }}
   </h6>
